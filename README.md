@@ -1,3 +1,24 @@
+# Versión de la UEJN
+
+Fork de [CakeDC/migrations](https://github.com/CakeDC/migrations) en la tag `2.6`, la última de
+la rama 2, con lo mínimo para que corra en PHP 8. Lo usa [Croogo 2](https://github.com/uejn/croogo)
+y, a través de él, [AfiGestión](https://github.com/uejn/afigestion) (uejn/afigestion#430).
+
+El paquete se sigue llamando `cakedc/migrations`. Los tags son `2.6.0.N`.
+
+## Cambios de la UEJN
+
+### 2.6.0.1 (22/10/2026)
+
+- `MigrationVersion`: `each()` (eliminada en PHP 8) por `key()`/`current()`, en los dos lugares.
+- `MigrationShell`: `ob_implicit_flush()` recibe `bool`.
+- Necesita `uejn/cakephp` 2.10.24.2 o más nuevo: las migraciones corren dentro de una
+  transacción y en MySQL un DDL la cierra solo; con PHP 8 el `commit()` rompía.
+- Los tests del plugin siguen en PHPUnit 3.7 y no se corren acá: se prueba a través de los de
+  Croogo.
+
+---
+
 CakeDC Migrations Plugin
 ========================
 
